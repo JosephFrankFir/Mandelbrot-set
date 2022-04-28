@@ -3,8 +3,6 @@ from mandelbrot import MandelbrotSet
 from viewport import Viewport
 import matplotlib.cm
 
-colormap = matplotlib.cm.get_cmap("twilight").colors
-palette = denormalize(colormap)
 
 def paint(mandelbrot_set, viewport, palette, smooth):
     for pixel in viewport:
@@ -19,6 +17,8 @@ def denormalize(palette):
     ]
 
 
+colormap = matplotlib.cm.get_cmap("twilight").colors
+palette = denormalize(colormap)
 
 
 mandelbrot_set = MandelbrotSet(max_iterations=512, escape_radius=1000)
