@@ -17,12 +17,12 @@ def denormalize(palette):
     ]
 
 
-colormap = matplotlib.cm.get_cmap("twilight").colors
+colormap = matplotlib.cm.get_cmap("inferno").colors
 palette = denormalize(colormap)
 
 
-mandelbrot_set = MandelbrotSet(max_iterations=512, escape_radius=1000)
-image = Image.new(mode="RGB", size=(512, 512))
+mandelbrot_set = MandelbrotSet(max_iterations=1366, escape_radius=1000)
+image = Image.new(mode="RGB", size=(1366 , 768))
 viewport = Viewport(image, center=-0.7435 + 0.1314j, width=0.002)
 paint(mandelbrot_set, viewport, palette, smooth=True)
 image.show()
