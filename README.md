@@ -1,5 +1,4 @@
 # Mandelbrot-set
-Mandelbrot set from RealPython
-
+Mandelbrot set
 ### Image
-![Screenshot](image.png)
+![Screenshot](image.jpg)
