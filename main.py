@@ -11,7 +11,7 @@ done = False
 def load_animation():
   
     # String to be displayed when the application is loading
-    load_str = "this may take a long time"
+    load_str = "this may take a while"
     ls_len = len(load_str)
   
   
@@ -57,7 +57,7 @@ def load_animation():
             res = res + load_str_list[j]
               
         # displaying the resultant string
-        sys.stdout.write("\r"+res + animation[anicount])
+        sys.stdout.write("\r"+f"{res} " + animation[anicount])
         sys.stdout.flush()
   
         # Assigning loading string
