@@ -6,6 +6,17 @@ import time
 import sys 
 import os
 import threading 
+import argparse
+
+ap = argparse.ArgumentParser(description='Mandelbrot settings.')
+ap.add_argument("-o", "--output", required=False, help="Save image")
+ap.add_argument("-s", "--show", action="store_true",required=False, help="Show image")
+args = ap.parse_args()
+
+if (args.output == None and args.show == None):
+ ap.print_help()
+ exit()
+
 done = False
 # Function for implementing the loading animation
 def load_animation():
@@ -103,7 +114,17 @@ viewport = Viewport(image, center=-0.7435 + 0.1314j, width=0.002)
 t2 = threading.Thread(target=paint(mandelbrot_set, viewport, palette, smooth=True))
 t2.start()
 
-image.show()
-image.save("image.jpg")
+if args.show == True:
+ t3 = threading.Thread(image.show())
+ t3.start()
+else:
+ print("Error")
+
+if args.output:
+ image.save(f"{args.output}.jpg")
+elif args.show == None:
+ print("Error") 
+
+
 done = True
 sys.stdout.write("Done!")
