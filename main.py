@@ -13,7 +13,7 @@ ap.add_argument("-o", "--output", required=False, help="Save image")
 ap.add_argument("-s", "--show", action="store_true",required=False, help="Show image")
 args = ap.parse_args()
 
-if (args.output == None and args.show == None):
+if len(sys.argv) > 1:
  ap.print_help()
  exit()
 
